@@ -1,0 +1,73 @@
+{
+  "skill_name": "saas-sidebar-redesign",
+  "evals": [
+    {
+      "id": 1,
+      "name": "full-redesign-explicit",
+      "prompt": "Redesign this Vue 3 app's UI into a modern SaaS-style interface. I want a vertical navigation sidebar on the left instead of the top nav bar, consistent spacing everywhere, and a polished professional look. The app is in the app/ directory of your working copy (Vue 3 + Vite, run `npm run build` to check it compiles). Don't add new npm dependencies.",
+      "expected_output": "Sidebar shell replaces the top nav; design tokens defined; shared card/table/button/badge styles restyled; builds cleanly; all routes still render.",
+      "files": [],
+      "assertions": [
+        "Production build succeeds (npm run build exits 0)",
+        "No new npm dependencies added (package.json unchanged)",
+        "Top navigation bar removed: no header.top-nav / .nav-tabs top bar remains in App.vue",
+        "A left sidebar exists: <aside> containing <nav> with an aria-label",
+        "Design tokens defined: :root declares --space-* custom properties and a color ramp",
+        "Shared card/table/badge/stat styles consume tokens (var(--...)) instead of raw hex/px",
+        "Active nav item driven by router-link active classes, not $route.path string comparison",
+        "No emoji characters added to UI text or icons (inline SVG only)",
+        "Hardcoded nav label 'Reports' replaced by an i18n key present in both en.js and ja.js",
+        "Original repo client/ directory untouched (work stayed in the throwaway copy)",
+        "Sidebar is collapsible and the collapsed state persists via localStorage",
+        "Language switcher and profile menu still rendered in the shell (moved into sidebar)",
+        "Existing FilterBar still rendered inside the main column"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "casual-crowded-nav-i18n",
+      "prompt": "the top nav got way too crowded after we added the restocking tab and honestly the whole app feels kinda inconsistent, spacing is all over the place. can you make it look like a proper admin dashboard? the app (app/ in your working copy) has an English/Japanese switcher so make sure the japanese labels dont break whatever you do",
+      "expected_output": "Sidebar replaces the crowded top nav; Japanese labels fit (truncate/tooltip, no layout break); consistent spacing via tokens; language switcher still reachable.",
+      "files": [],
+      "assertions": [
+        "Production build succeeds (npm run build exits 0)",
+        "No new npm dependencies added (package.json unchanged)",
+        "Top navigation bar removed: no header.top-nav / .nav-tabs top bar remains in App.vue",
+        "A left sidebar exists: <aside> containing <nav> with an aria-label",
+        "Design tokens defined: :root declares --space-* custom properties and a color ramp",
+        "Shared card/table/badge/stat styles consume tokens (var(--...)) instead of raw hex/px",
+        "Active nav item driven by router-link active classes, not $route.path string comparison",
+        "No emoji characters added to UI text or icons (inline SVG only)",
+        "Hardcoded nav label 'Reports' replaced by an i18n key present in both en.js and ja.js",
+        "Original repo client/ directory untouched (work stayed in the throwaway copy)",
+        "Sidebar nav labels truncate safely (text-overflow: ellipsis / nowrap) so long Japanese labels cannot break layout",
+        "Language switcher remains reachable after the redesign",
+        "Final summary explicitly reports how Japanese labels were handled"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "light-sidebar-mobile-focus",
+      "prompt": "I want the app in app/ to look like a modern SaaS product - left sidebar navigation, but keep it a light theme (white sidebar, not dark) and make sure it works well on a phone, I'll be showing it on my iPhone. Collapsed-to-icons mode would be nice too. Please verify it in a browser at phone width before you tell me it's done.",
+      "expected_output": "Light sidebar; collapsible rail with persisted state; mobile drawer with hamburger, backdrop, close on navigate; verified at a phone viewport.",
+      "files": [],
+      "assertions": [
+        "Production build succeeds (npm run build exits 0)",
+        "No new npm dependencies added (package.json unchanged)",
+        "Top navigation bar removed: no header.top-nav / .nav-tabs top bar remains in App.vue",
+        "A left sidebar exists: <aside> containing <nav> with an aria-label",
+        "Design tokens defined: :root declares --space-* custom properties and a color ramp",
+        "Shared card/table/badge/stat styles consume tokens (var(--...)) instead of raw hex/px",
+        "Active nav item driven by router-link active classes, not $route.path string comparison",
+        "No emoji characters added to UI text or icons (inline SVG only)",
+        "Hardcoded nav label 'Reports' replaced by an i18n key present in both en.js and ja.js",
+        "Original repo client/ directory untouched (work stayed in the throwaway copy)",
+        "Sidebar background is light (white/near-white), not dark",
+        "Collapsed icon-only mode implemented and persisted in localStorage",
+        "Mobile drawer: breakpoint media query, backdrop, Escape-to-close and close-on-route-change present",
+        "Screenshots at phone width (mobile.png and drawer open) exist in outputs",
+        "Run reports a real browser check at phone width (not just a build)"
+      ]
+    }
+  ]
+}

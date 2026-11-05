@@ -6,6 +6,7 @@ export default {
     orders: 'Orders',
     finance: 'Finance',
     demandForecast: 'Demand Forecast',
+    restocking: 'Restocking',
     companyName: 'Catalyst Components',
     subtitle: 'Inventory Management System'
   },
@@ -112,6 +113,14 @@ export default {
     onTimeDelivery: 'On-Time Delivery',
     itemsCount: '{count} items',
     quantity: 'Qty',
+    submittedOrders: 'Submitted Orders',
+    submittedDate: 'Submitted',
+    leadTime: 'Lead Time',
+    expectedDelivery: 'Expected Delivery',
+    totalCost: 'Total Cost',
+    noSubmittedOrders: 'No restock orders have been submitted yet.',
+    days: '{count} days',
+    submittedStatus: 'Submitted',
     table: {
       orderNumber: 'Order Number',
       orderId: 'Order ID',
@@ -207,6 +216,42 @@ export default {
     inStock: 'In Stock',
     lowStock: 'Low Stock',
     adequate: 'Adequate'
+  },
+
+  // Restocking
+  restocking: {
+    title: 'Restocking',
+    subtitle: 'Plan restock orders within a budget, prioritized by forecasted demand growth',
+    budget: 'Budget',
+    budgetLabel: 'Restock budget',
+    recommendedSpend: 'Recommended Spend',
+    remaining: 'Remaining',
+    items: 'Items',
+    recommendations: 'Recommended Items',
+    placeOrder: 'Place Order',
+    placing: 'Placing order...',
+    table: {
+      sku: 'SKU',
+      item: 'Item',
+      supplier: 'Supplier',
+      quantity: 'Qty',
+      unitCost: 'Unit Cost',
+      lineTotal: 'Line Total',
+      leadTime: 'Lead Time (days)',
+      trend: 'Trend'
+    },
+    empty: 'No items fit within the current budget. Increase the budget to see recommendations.',
+    noCandidates: 'No items currently need restocking.',
+    confirmTitle: 'Confirm Restock Order',
+    confirmMessage: 'You are about to submit a restock order for {count} items.',
+    confirmTotal: 'Total cost',
+    confirmLeadTime: 'Longest lead time',
+    days: '{count} days',
+    cancel: 'Cancel',
+    confirm: 'Confirm Order',
+    successMessage: 'Order {orderNumber} submitted. Expected lead time: {days} days.',
+    errorMessage: 'Failed to place order',
+    loadError: 'Failed to load restocking data'
   },
 
   // Trends
